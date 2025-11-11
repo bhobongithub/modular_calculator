@@ -75,29 +75,6 @@ Token Lexer::next() {
         return Token{TokenKind::Number, s, start};
     }
 
-    //Detect bare hex literals like FF0045 or FACE (me)
-    if (isalpha((unsigned char)c)) {
-        string s;
-        while (pos_ < input_.size() && (isalnum((unsigned char)input_[pos_]) || input_[pos_] == '_')) {
-            s.push_back(input_[pos_]);
-            ++pos_;
-        }
-
-        // Check if token is ALL hex digits (0-9, A-F) and contains at least one A–F
-        bool all_hex = !s.empty() &&
-                       all_of(s.begin(), s.end(), [](unsigned char ch) {
-                           return isxdigit(ch);
-                       });
-        bool has_hex_letter = any_of(s.begin(), s.end(), [](unsigned char ch) {
-            char lower = tolower(ch);
-            return lower >= 'a' && lower <= 'f';
-        });
-
-        if (all_hex && has_hex_letter) {
-            // Implicit bare hex literal
-            return Token{TokenKind::Number, "0x" + s, start};  // add 0x prefix for evaluator
-        }
-        //end of code I added
 
     //Identifiers (variables and functions like sin, cos, etc.)
     if (is_ident_start(c)) {
