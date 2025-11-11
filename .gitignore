@@ -1,6 +1,7 @@
 # Compiled object files
 *.o
 *.obj
+*.txt
 
 # Executable files
 *.exe
