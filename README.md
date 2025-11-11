@@ -35,27 +35,10 @@ When you’re ready to save your work:
 
 git add .
 git commit -m "Describe your change briefly"
-
-
 Push your branch to GitHub:
-
 git push -u origin your-branch-name
 
-5. Merging changes (via Pull Request)
-
-Once your work is complete and tested:
-
-Go to the repository on GitHub.
-
-You’ll see an option to “Compare & pull request.” Click it.
-
-Add a brief summary of your changes.
-
-Submit the pull request to merge your branch into master.
-
-Only after review and approval should changes be merged into the master branch.
-
-6. Keeping your branch updated
+5. Keeping your branch updated
 
 If others have made changes to master, update your branch with the latest code before merging:
 
