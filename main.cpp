@@ -28,12 +28,12 @@ int main(int argc, char** argv)
     for (auto &q : questions) 
     {
         qn++;
-        cout << "--- Question " << qn << " (base=" << q.base << ") ---\n";
+        cout << "Question: " << qn << "\n";
         QuestionProcessor proc;
         auto res = proc.process(q);
 
         std::ostringstream outText;
-        outText << "--- Question " << qn << " (base=" << q.base << ") ---\n";
+        outText << "Question: " << qn << "\n";
         outText << q.text << "\n";
 
         if (res.ok()) {
