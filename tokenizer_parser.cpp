@@ -75,14 +75,6 @@ Token Lexer::next() {
         return Token{TokenKind::Number, s, start};
     }
 
-    //Detect bare hex literals like FF0045 or FACE (me)
-    if (isalpha((unsigned char)c)) {
-        string s;
-        while (pos_ < input_.size() && (isalnum((unsigned char)input_[pos_]) || input_[pos_] == '_')) {
-            s.push_back(input_[pos_]);
-            ++pos_;
-        }
-
     //Identifiers (variables and functions like sin, cos, etc.)
     if (is_ident_start(c)) {
         string s;
